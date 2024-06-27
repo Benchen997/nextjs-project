@@ -69,3 +69,16 @@ export async function deleteInvoice(id: string) {
     }
     revalidatePath('/dashboard/invoices');
 }
+
+export async function login(FormData: FormData) {
+    const email = FormData.get('email');
+    const password = FormData.get('password');
+    // Simulate a login request
+    if (email === '' || password === '') {
+        return {
+            message: 'Please provide both email and password'
+        };
+    }
+    revalidatePath('/dashboard');
+    redirect('/dashboard');
+}
